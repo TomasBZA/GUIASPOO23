@@ -15,10 +15,10 @@ class Pila:
             return None
         return self.items.pop()
     
-    def estaVacia(self):
+    def Vacia(self):
         return self.items == []
     
-    def tamano(self):
+    def tamaño(self):
         return len(self.items)
     
     def print(self):
@@ -34,10 +34,10 @@ print(pila.desapilar())
 print(pila.desapilar())
 print(pila.desapilar())
 pila.print()
-print(pila.tamano())
-print(pila.estaVacia())
+print(pila.tamaño())
+print(pila.Vacia())
 pila.apilar(1)
 pila.apilar(2)
 pila.apilar(3)
 pila.print()
-print(pila.tamano())
+print(pila.tamaño())
