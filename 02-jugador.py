@@ -23,3 +23,49 @@ Luego simule 10 llamadas a métodos a elección entre shoot y heal.
 Termine mostrando la info de cada jugador e indicando, si hay un ganador (si sólo un jugador
 queda vivo), quién es. En caso contrario, indicar que no hay ganadores.
 """
+import random
+
+class Jugador:
+    def __init__(self, nombre: str, vida: int, estado: bool):
+        self.nombre = nombre
+        self.vida = vida
+        self.estado = estado
+    
+    def shoot(self, jugador: 'Jugador'):
+        print(f"{self.nombre} está disparando a {jugador.nombre}")
+        dmg = random.randint(50, 100)
+        jugador.dmg(dmg)
+    
+    def info(self) -> bool:
+        print(f"Nombre: {self.nombre}")
+        print(f"Vida: {self.vida}")
+        if self.estado:
+            print("Estado: Vivo")
+        else:
+            print("Estado: Muerto")
+        return self.estado
+    
+    def heal(self, x: int):
+        if self.vida + x > 100:
+            ganancia = 100 - self.vida
+            self.vida = 100
+        else:
+            ganancia = x
+            self.vida += x
+        print(f"{self.nombre} ha ganado {ganancia} puntos de vida")
+    
+    def dmg(self, x: int):
+        self.vida -= x
+        if self.vida < 0:
+            self.vida = 0
+            self.estado = False
+            print(f"{self.nombre} ha muerto")
+        else:
+            print(f"{self.nombre} ha recibido {x} puntos de daño")
+
+# Crear jugadores
+jugadores = [Jugador("Jugador 1", 100, True), Jugador("Jugador 2", 100, True), Jugador("Jugador 3", 100, True)]
+
+# Mostrar info de cada jugador
+for jugador in jugadores:
+    jugador.info()
