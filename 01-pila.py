@@ -11,7 +11,7 @@ class Pila:
         self.items.append(x)
 
     def desapilar(self):
-        if self.estaVacia():
+        if self.Vacia():
             return None
         return self.items.pop()
     
